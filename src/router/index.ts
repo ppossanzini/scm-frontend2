@@ -8,7 +8,30 @@ const routes: Array<RouteConfig> = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home, 
+    children:[{
+      path:"/sub", 
+      name: "sub", 
+      component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    }]
+  },
+  {
+    path: '/raw', 
+    name: 'Raw', 
+    // props: true,
+    component: ()=> import( /* webpackChunkName: "dati" */ "@/views/raw/raw.vue")
+  },
+  {
+    path: '/chart', 
+    name: 'Chart', 
+    // props: true,
+    component: ()=> import( /* webpackChunkName: "dati" */ "@/views/barChart/barChart.vue")
+  },
+  {
+    path: '/table', 
+    name: 'Table', 
+    // props: true,
+    component: ()=> import( /* webpackChunkName: "dati" */ "@/views/table/table.vue")
   },
   {
     path: '/about',
